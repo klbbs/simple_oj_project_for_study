@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}
+简单oj-题库
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>题库</h1>
+    <div class="list-group overflow-auto">
+        <div class="row text-center">
+            <div class="col-1">题目id</div>
+            <div class="col-6">题目名字</div>
+            <div class="col-1">题目难度</div>
+            <div class="col-4 text-center">题目标签</div>
+        </div>
+    </p>
+        {% for problem in problems %}
+            <a href="#" class="list-group-item list-group-item-action">
+                <div class="row text-center">
+                    <div class="col-1">{{ problem.id }}</div>
+                    <div class="col-6">{{ problem.title }}</div>
+                    <div class="col-1">{{ problem.difficulty }}</div>
+                    <div class="col-4">{{ problem.category }}</div>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
