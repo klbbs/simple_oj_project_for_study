@@ -34,4 +34,3 @@ def forge(count):
         db.session.add(problem)
     db.session.commit()
     click.echo('random done')
-    print(db.query.all()) 

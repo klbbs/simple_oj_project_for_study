@@ -16,7 +16,7 @@
         </div>
     </p>
         {% for problem in problems %}
-            <a href="#" class="list-group-item list-group-item-action">
+            <a href="{{url_for('detail',id=problem.id)}}" class="list-group-item list-group-item-action">
                 <div class="row text-center">
                     <div class="col-1">{{ problem.id }}</div>
                     <div class="col-6">{{ problem.title }}</div>
