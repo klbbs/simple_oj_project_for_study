@@ -1,12 +1,16 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from oj import oj
 
 from oj import db
 from oj.models import Problem
 
-@oj.route('/')
+@oj.route('/', methods=['POST','GET'])
 def index():
-    problems = Problem.query.all()
+
+    page = request.args.get('page',1,type=int)
+
+    problems = Problem.query.paginate(page=page,per_page=10,error_out=False)
+
     return render_template('index.html',problems=problems)
 
 @oj.route('/problem/<int:id>')

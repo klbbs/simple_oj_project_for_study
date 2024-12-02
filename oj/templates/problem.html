@@ -5,16 +5,32 @@
 {% endblock %}
 
 {% block content %}
-<div class="container mt-4">
-<div class="card">
-    <div class="card-body">
-        <div class="card-title">{{ problem.title }}</div>
-        <div class="card-text">
-            {{ problem.description }}
+<div class="container mt-4 bg-dark">
+    <div class="card bg-dark text-white">
+        <div class="card-body">
+            <div class="card-title fs-4"><strong>{{ problem.title }}</strong></div>
+            <div class="card-text mt-4">
+                {{ problem.description }}
+            </div>
         </div>
     </div>
-</div>
 
+    <div class="card bg-dark text-white mt-4">
+        <div class="card-body">
+            <p><b>示例输入:</b></p>
+            <div class="card-text">
+                {{ problem.input_sample }}
+            </div>
+        </div>
+    </div>
+    <div class="card bg-dark text-white mt-4">
+        <div class="card-body">
+            <p><b>示例输出:</b></p>
+            <div class="card-text">
+                {{ problem.output_sample }}
+            </div>
+        </div>
+</div>
 </div>
 
 {% endblock %}
