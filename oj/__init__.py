@@ -9,6 +9,7 @@ oj = Flask('oj')
 oj.config.from_pyfile('settings.py')
 oj.jinja_env.trim_blocks = True
 oj.jinja_env.lstrip_blocks = True
+oj.config.update(DEBUG=True)
 
 db = SQLAlchemy(oj)
 bootstrap = Bootstrap(oj)

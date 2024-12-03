@@ -6,6 +6,15 @@
 
 {% block content %}
 <div class="container mt-4">
+    <form action="{{ url_for('index')}}" method="POST">
+    <label for="searchbar" class="form-label m-4 fs-4">题目搜索</label> 
+    <div class="input-group">
+    <input class="form-control col-auto" name="keyword" value="{{ keyword }}" placeholder="type here to search ..." id="searchbar" required>
+    <button class="btn btn-primary col-auto" type="submit">search</button>
+    </form>
+    </div>
+</div>
+<div class="container mt-4">
     <h1>题库</h1>
     <div class="list-group">
         <div class="row text-center">
