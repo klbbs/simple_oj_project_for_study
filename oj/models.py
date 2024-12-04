@@ -1,5 +1,5 @@
 from oj import db
-
+from sqlalchemy import func
 
 class Problem(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -15,3 +15,19 @@ class Problem(db.Model):
         db.Index('idx_difficulty','difficulty'),
         db.Index('idx_title','title'),
     )
+
+
+class Submit(db.Model):
+    __tablename__ = 'submit'
+    text = db.Column(db.Text, nullable=False)
+    sub_id = db.Column(db.Integer, primary_key=True)
+    date_time = db.Column(db.DateTime, default=func.utcnow(), nullable=False)
+    status = db.Column(db.String(20), nullable=False)
+
+    author = db.relationship('User',back_populates='submits')
+
+
+class User(db.Model):
+    __tablename__ = 'user'
+    user_id = db.Column(db.Integer, primary_key=True)
+    submits = db.relationship('Submit',back_populates='author',cascade='all, delete-orphan')
